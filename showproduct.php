@@ -27,6 +27,12 @@ include_once("header.php");
         object-fit: cover;
     }
 </style>
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.css" />
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/simple-notify/dist/simple-notify.min.js"></script>
 </head>
 
 <body>
@@ -54,19 +60,24 @@ include_once("header.php");
 
                 <p><strong>Size:</strong></p>
                 <div class="d-flex flex-wrap">
-                    <button class="btn btn-outline-dark size-button">36</button>
-                    <button class="btn btn-outline-dark size-button">37</button>
-                    <button class="btn btn-outline-dark size-button">38</button>
-                    <button class="btn btn-outline-dark size-button">39</button>
+                    <button class="btn btn-outline-dark size-button" onclick="handleSelectSize(36)">36</button>
+                    <button class="btn btn-outline-dark size-button" onclick="handleSelectSize(37)">37</button>
+                    <button class="btn btn-outline-dark size-button" onclick="handleSelectSize(38)">38</button>
+                    <button class="btn btn-outline-dark size-button" onclick="handleSelectSize()">39</button>
                     <button class="btn btn-outline-dark size-button">40</button>
                     <button class="btn btn-outline-dark size-button">41</button>
                     <button class="btn btn-outline-dark size-button">42</button>
                     <button class="btn btn-outline-dark size-button">43</button>
                 </div>
-                <a href="cart.php"><button class="btn btn-success mt-3">THÊM VÀO GIỎ HÀNG</button></a>
+                <a ><button class="btn btn-success mt-3" onclick="showOrder()">THÊM VÀO GIỎ HÀNG</button></a>
             </div>
         </div>
 
         <!-- Sản phẩm liên quan -->
         <h4 class="mt-5">SẢN PHẨM LIÊN QUAN</h4>
-        <div class="row
+        <div class="row"></div>
+</div>
+</body>
+<?php
+include_once("footer.php");
+?>

@@ -73,8 +73,6 @@ include_once("header.php");
         <button class="btn btn-success">Thanh toán</button>
     </div>
 </div>
-<script>
-    document.querySelector('.btn-success').addEventListener('click', function() {
-        window.location.href = 'bill.php';
-    });
-</script>
+<?php
+include_once("footer.php");
+?>

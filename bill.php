@@ -89,4 +89,7 @@
         <button type="submit" class="btn btn-primary w-100">Đặt Hàng :33</button>
     </form>
 </div>
+<?php
+include_once("footer.php");
+?>
 

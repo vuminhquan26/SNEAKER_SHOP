@@ -5,110 +5,184 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>F4 Sneaker</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Bootstrap 5.3.4 + Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
-    .dropdown-submenu {
-      position: relative;
+    /* Navbar links và brand */
+    .navbar-dark .navbar-nav .nav-link,
+    .navbar-dark .navbar-brand {
+      color: white !important;
     }
 
-    .dropdown-submenu .dropdown-menu {
+    /* Fix navbar trên cùng */
+    .navbar {
+      position: fixed;
+      /* Cố định navbar */
       top: 0;
-      left: 100%;
-      margin-top: -1px;
-      display: none;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background-color: #343a40;
+      padding: 10px 0;
     }
 
-    .dropdown-submenu:hover .dropdown-menu {
-      display: block;
+    /* Dropdown menu */
+    .navbar .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1050;
     }
 
-    /* Đã bỏ mũi tên ▸ tránh bị double */
-    /* .dropdown-menu > .dropdown-submenu > a::after {
-      content: " ▸";
-      float: right;
-    } */
+    /* Khoảng cách cho body */
+    body {
+      padding-top: 70px;
+    }
+
+    /* Hiệu ứng hover */
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-brand:hover {
+      color: #0d6efd !important;
+    }
+
+    /* Màu dropdown items */
+    .navbar-dark .dropdown-menu a {
+      color: white;
+    }
+
+    /* Hover dropdown item */
+    .navbar-dark .dropdown-menu a:hover {
+      background-color: #0d6efd;
+      color: white !important;
+    }
+
+    /* Input và button */
+    .navbar-dark .form-control {
+      background-color: #495057;
+      color: white;
+      border: none;
+    }
+
+    /* Placeholder */
+    .navbar-dark .form-control::placeholder {
+      color: #ccc;
+    }
+
+    /* Button */
+    .navbar-dark .btn {
+      color: white;
+      border: none;
+    }
+
+    /* Hover button */
+    .navbar-dark .btn:hover {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    /* Hover success button */
+    .btn-outline-success:hover {
+      background-color: #198754;
+      color: white;
+    }
+
+    /* Logo */
+    .navbar-brand img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+
+    /* Dropdown menu (nền và viền) */
+    .navbar-dark .dropdown-menu {
+      background-color: #343a40;
+      border: none;
+    }
+
+    /* Padding cho dropdown item */
+    .navbar-dark .dropdown-menu a {
+      padding: 10px 20px;
+    }
+
+    /* Hover dropdown item */
+    .navbar-dark .dropdown-menu a:hover {
+      background-color: #0d6efd;
+      color: white !important;
+    }
+
+    /* Dropdown toggle */
+    .navbar-dark .nav-item .nav-link.dropdown-toggle {
+      color: white;
+    }
+
+    /* Hover dropdown toggle */
+    .navbar-dark .nav-item .nav-link.dropdown-toggle:hover {
+      color: #0d6efd !important;
+    }
   </style>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="home.php">TRANG CHỦ</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand d-flex align-items-center" href="home.php">
+        <img src="image/logo/store_logo/F4-SNEAKER-4-15-2025.png" alt="F4 Sneaker Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="about.php">GIỚI THIỆU</a>
+            <a class="nav-link active" href="home.php">TRANG CHỦ</a>
           </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownSanPham" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              SẢN PHẨM
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownSanPham">
-              <li><a class="dropdown-item" href="product.php">GIÀY BÓNG ĐÁ</a></li>
-              <li><a class="dropdown-item" href="product.php">GIÀY SNEAKER</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownHang" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              HÃNG
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownHang">
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">HÃNG SNEAKER</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="product.php">ADIDAS</a></li>
-                  <li><a class="dropdown-item" href="product.php">CONVERSE</a></li>
-                  <li><a class="dropdown-item" href="product.php">LV</a></li>
-                  <li><a class="dropdown-item" href="product.php">MLB</a></li>
-                  <li><a class="dropdown-item" href="product.php">NIKE</a></li>
-                  <li><a class="dropdown-item" href="product.php">VANS</a></li>
-                  <li><a class="dropdown-item" href="product.php">NB</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a class="dropdown-item dropdown-toggle" href="#">HÃNG THỂ THAO</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="product.php">ADIDAS</a></li>
-                  <li><a class="dropdown-item" href="product.php">MIZUNO</a></li>
-                  <li><a class="dropdown-item" href="product.php">KAMITO</a></li>
-                  <li><a class="dropdown-item" href="product.php">PUMA</a></li>
-                  <li><a class="dropdown-item" href="product.php">NIKE</a></li>
-                  <li><a class="dropdown-item" href="product.php">BITIS</a></li>
-                  <li><a class="dropdown-item" href="product.php">WIKA</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-
-          <!-- ✅ THÔNG TIN CÁ NHÂN là 1 mục riêng -->
           <li class="nav-item">
-            <a class="nav-link" href="profile.php">THÔNG TIN CÁ NHÂN</a>
+            <a class="nav-link" href="product.php">SNEAKER</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">THƯƠNG HIỆU</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="product.php?brand=adidas">ADIDAS</a></li>
+              <li><a class="dropdown-item" href="product.php?brand=nike">NIKE</a></li>
+              <li><a class="dropdown-item" href="product.php?brand=vans">VANS</a></li>
+              <li><a class="dropdown-item" href="product.php?brand=converse">CONVERSE</a></li>
+              <li><a class="dropdown-item" href="product.php?brand=mlb">MLB</a></li>
+              <li><a class="dropdown-item" href="product.php?brand=nb">NEW BALANCE</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.php">GIỚI THIỆU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.php"><i class="bi bi-person-circle"></i> CÁ NHÂN</a>
           </li>
         </ul>
 
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="TÌM KIẾM SẢN PHẨM" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">TÌM</button>
+        <form class="d-flex me-3" action="search.php" method="get">
+          <input class="form-control me-2" type="search" name="q" placeholder="Tìm kiếm Sneaker...">
+          <button class="btn btn-outline-success" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
         </form>
+
+        <div class="d-flex">
+          <a href="login.php" class="btn btn-outline-light me-2">
+            <i class="bi bi-box-arrow-in-right"></i> ĐĂNG NHẬP
+          </a>
+          <a href="res.php" class="btn btn-outline-light">
+            <i class="bi bi-person-plus"></i> ĐĂNG KÝ
+          </a>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -62,3 +62,6 @@ include_once("header.php");
             <p class="mt-3">Chúng tôi rất trân trọng sự ủng hộ của bạn!</p>
         </div>
     </div>
+<?php
+include_once("footer.php");
+?>

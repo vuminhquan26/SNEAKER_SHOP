@@ -86,7 +86,7 @@ footer {
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
             <div class="card h-100">
-                <img src="image/THETHAO/Converse/chuyengiaysneaker-com-giay-converse-runstar-like-auth-like-auth-3939-247x247.jpg" alt="F4 Sneaker">
+                <img src="image/product/MLB/giay_mlb_bigball_a_boston_baby_double_like_auth/giay_mlb_bigball_a_boston_baby_double_like_auth.jpg" alt="F4 Sneaker">
                 <div class="card-body">
                     <h5 class="card-title">F4 Sneaker</h5>
                     <p class="card-text">
@@ -101,7 +101,7 @@ footer {
 
         <div class="col">
             <div class="card h-100">
-                <img src="image/BONGDA/ADIDAS/Hiện sản phẩm trong nhóm Giày đá bóng adidas.jpeg" alt="old sneaker">
+                <img src="image/product/Nike/giay_air_jordan_1_low_mighty_swoshers_blue_sieu_cap/giay_air_jordan_1_low_mighty_swoshers_blue_sieu_cap.jpg" alt="old sneaker">
                 <div class="card-body">
                     <h5 class="card-title">Quá trình</h5>
                     <p class="card-text">
@@ -117,7 +117,7 @@ footer {
 
         <div class="col">
             <div class="card h-100">
-                <img src="image/THETHAO/MLB/chuyengiaysneaker-com-giay-sneaker-mlb-korea-liner-sieu-cap2323-247x247.jpg" alt="Mục tiêu">
+                <img src="image/product/Nike/giay_nike_air_force_1_07_low_keep_fresh_beige_light_grey_sliver_like_auth/giay_nike_air_force_1_07_low_keep_fresh_beige_light_grey_sliver_like_auth_1.jpg" alt="Mục tiêu">
                 <div class="card-body">
                     <h5 class="card-title">Mục tiêu</h5>
                     <p class="card-text">
@@ -132,7 +132,7 @@ footer {
 </div>
 
 <div class="container text-center">
-    <img src="image/F4-SNEAKER-4-15-2025.png" alt="F4 Sneaker Image">
+    <img src="image/logo/store_logo/F4-SNEAKER-4-15-2025.png" alt="F4 Sneaker Image">
 </div>
 
 <div class="container">
@@ -143,6 +143,6 @@ footer {
     </h4>
 </div>
 
-<footer>
-    &copy; 2025 F4 Sneaker. All rights reserved.
-</footer>
+<?php
+include_once("footer.php");
+?>

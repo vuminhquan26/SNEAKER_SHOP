@@ -1,10 +1,10 @@
-<?php
-include_once("header.php");
-?>
+<?php include_once("header.php"); ?>
 <style>
-    .text-center fw-bold fs-2 text {
-        display: flex;
-        justify-content: center;
+    .carousel-item img {
+        width: 100%;
+        height: 60vh;
+        object-fit: cover;
+        object-position: center;
     }
 
     .container {
@@ -16,334 +16,247 @@ include_once("header.php");
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        /* khoảng cách giữa các card */
     }
 
     .showproduct .card {
         width: 18rem;
-    }
-
-    .showbrand {
+        height: 25rem;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        /* khoảng cách giữa các card */
+        flex-direction: column;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
     }
 
-    .showbrand .card {
-        width: 18rem;
-    }
-
-    .feedback {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        /* khoảng cách giữa các card */
-    }
-
-    .feedback .card {
-        max-width: 540px;
+    .image-wrapper {
+        position: relative;
         width: 100%;
+        height: 75%;
+        overflow: hidden;
+    }
+
+    .card-img-top,
+    .card-img-top-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .card-img-top-hover {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .card:hover .card-img-top {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+
+    .card:hover .card-img-top-hover {
+        opacity: 1;
+    }
+
+    .card-body {
+        flex: 1;
+        background: white;
+        text-align: center;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .card-body h5 {
+        font-size: 1.1rem;
+        margin-bottom: .5rem;
+    }
+
+    .card-body p {
+        color: #dc3545;
+        font-weight: bold;
+        margin-bottom: .5rem;
+    }
+
+    .featured-brands {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 50px;
+    }
+
+    .brand-card {
+        width: 12rem;
+        height: 12rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+
+    .brand-card:hover {
+        transform: scale(1.1);
+    }
+
+    .brand-card img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
     }
 </style>
-<!-- Hero -->
-<div class="p-5 text-center bg-image rounded-3" style="
-        background-image: url('https://bizweb.dktcdn.net/100/458/331/themes/866920/assets/banner_product_noibat.jpg?1743156871883');
-        height: 1000px;
-    ">
-</div>
-<!-- Hero -->
-<!-- Commit-->
-<div class="container">
-    <p class="text-center fw-bold fs-2 text-danger">CAM KẾT KHI MUA HÀNG</p>
-    <table class="table text-center">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col">HOTLINE: 012345678</th>
-                <th scope="col">CAM KẾT GIAO HÀNG ĐÚNG HẠN</th>
-                <th scope="col">PHÍ SHIP RẺ NHẤT THỊ TRƯỜNG</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="res.php" class="btn btn-primary">ĐĂNG KÍ</a>
-                </td>
-                <td>
-                    <a href="login.php" class="btn btn-primary">ĐĂNG NHẬP</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+
+<!-- Hero Carousel -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://bizweb.dktcdn.net/100/458/331/themes/866920/assets/banner_product_noibat.jpg?1743156871883" class="d-block w-100" alt="Hero Image">
+        </div>
+        <div class="carousel-item">
+            <img src="https://bizweb.dktcdn.net/100/108/842/themes/775959/assets/slide-img2.jpg?1744885252868" class="d-block w-100" alt="Hero Image">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
-<!-- Commit-->
-<!--Product Hot-->
+<!-- Hot Products -->
 <div class="container">
     <p class="text-center fw-bold fs-2 text-danger">SẢN PHẨM BÁN CHẠY</p>
     <div class="showproduct">
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
+        <!-- 7 thẻ sản phẩm, mỗi thẻ là 1 card -->
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="image/product/Nike/nike_air_jordan_1_low_true_blue_cement_like_auth/nike_air_jordan_1_low_true_blue_cement_like_auth.jpg" class="card-img-top" alt="ẢNH GIÀY">
+                <img src="image/product/Nike/nike_air_jordan_1_low_true_blue_cement_like_auth/nike_air_jordan_1_low_true_blue_cement_like_auth_1.jpg" class="card-img-top-hover" alt="ẢNH GIÀY hover">
+            </div>
             <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
+                <h5 class="card-title">TÊN GIÀY 1</h5>
+                <p class="card-text">1.200.000₫</p>
                 <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="image/product/MLB/mlb_chunky_liner_mid_classic_monogram_new_york_yankees_black_like_auth/mlb_chunky_liner_mid_classic_monogram_new_york_yankees_black_like_auth.jpg" class="card-img-top" alt="ẢNH GIÀY">
+                <img src="image/product/MLB/mlb_chunky_liner_mid_classic_monogram_new_york_yankees_black_like_auth/mlb_chunky_liner_mid_classic_monogram_new_york_yankees_black_like_auth_1.jpg" class="card-img-top-hover" alt="ẢNH GIÀY hover">
+            </div>
             <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
+                <h5 class="card-title">TÊN GIÀY 2</h5>
+                <p class="card-text">1.450.000₫</p>
                 <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="image/product/Nike/air_force_1_global_sail_game_royal_white_best_quality/air_force_1_global_sail_game_royal_white_best_quality.jpg" class="card-img-top" alt="ẢNH GIÀY">
+                <img src="image/product/Nike/air_force_1_global_sail_game_royal_white_best_quality/air_force_1_global_sail_game_royal_white_best_quality_1.jpg" class="card-img-top-hover" alt="ẢNH GIÀY hover">
+            </div>
             <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
+                <h5 class="card-title">TÊN GIÀY 3</h5>
+                <p class="card-text">1.300.000₫</p>
                 <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="image/product/VANS/giay_vans_old_skool_classic_black_white/giay_vans_old_skool_classic_black_white.jpg" class="card-img-top" alt="ẢNH GIÀY">
+                <img src="image/product/VANS/giay_vans_old_skool_classic_black_white/giay_vans_old_skool_classic_black_white_1.jpg" class="card-img-top-hover" alt="ẢNH GIÀY">
+            </div>
             <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
+                <h5 class="card-title">TÊN GIÀY 4</h5>
+                <p class="card-text">1.000.000₫</p>
                 <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
-            <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
-                <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="image/product/Converse/giay_converse_run_star_hike_black_high_top_sieu_cap/giay_converse_run_star_hike_black_high_top_sieu_cap.jpg" class="card-img-top" alt="ẢNH GIÀY">
+                <img src="image/product/Converse/giay_converse_run_star_hike_black_high_top_sieu_cap/giay_converse_run_star_hike_black_high_top_sieu_cap_1.jpg" class="card-img-top-hover" alt="ẢNH GIÀY hover">
             </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
             <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
-                <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
-            <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
+                <h5 class="card-title">TÊN GIÀY 5</h5>
+                <p class="card-text">980.000₫</p>
                 <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
             </div>
         </div>
 
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="image/product/Converse/giay_converse_chuck_taylor_1970s_all_star_black_white_co_cao/giay_converse_chuck_taylor_1970s_all_star_black_white_co_cao.jpg" class="card-img-top" alt="ẢNH GIÀY">
+                <img src="image/product/Converse/giay_converse_chuck_taylor_1970s_all_star_black_white_co_cao/giay_converse_chuck_taylor_1970s_all_star_black_white_co_cao_1.jpg" class="card-img-top-hover" alt="ẢNH GIÀY hover">
+            </div>
             <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
+                <h5 class="card-title">TÊN GIÀY 6</h5>
+                <p class="card-text">1.500.000₫</p>
                 <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="image/product/Converse/giay_converse_x_dior_b23_low_top_sneaker_black_dior_oblique_like_auth/giay_converse_x_dior_b23_low_top_sneaker_black_dior_oblique_like_auth.jpg" class="card-img-top" alt="ẢNH GIÀY">
+                <img src="image/product/Converse/giay_converse_x_dior_b23_low_top_sneaker_black_dior_oblique_like_auth/giay_converse_x_dior_b23_low_top_sneaker_black_dior_oblique_like_auth_1.jpg" class="card-img-top-hover" alt="ẢNH GIÀY hover">
+            </div>
             <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
+                <h5 class="card-title">TÊN GIÀY 6</h5>
+                <p class="card-text">1.500.000₫</p>
                 <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
-            <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
-                <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
+        <div class="card">
+            <div class="image-wrapper">
+                <img src="image/product/Nike/giay_nike_air_force_1_low_panda_best_quality/giay_nike_air_force_1_low_panda_best_quality.jpg" class="card-img-top" alt="ẢNH GIÀY">
+                <img src="image/product/Nike/giay_nike_air_force_1_low_panda_best_quality/giay_nike_air_force_1_low_panda_best_quality_1.jpg" class="card-img-top-hover" alt="ẢNH GIÀY hover">
             </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
             <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
-                <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="image/THETHAO/Adidas/images/adidas-adidas-samba-classic-white-800x650-1-247x247.jpg" class="card-img-top" alt="ẢNH GIÀY">
-            <div class="card-body">
-                <h5 class="card-title">TÊN GIÀY</h5>
-                <p class="card-text">GIÁ 1.XXX.XXX</p>
+                <h5 class="card-title">TÊN GIÀY 6</h5>
+                <p class="card-text">1.500.000₫</p>
                 <a href="showproduct.php" class="btn btn-primary">XEM CHI TIẾT</a>
             </div>
         </div>
     </div>
 </div>
-<!--Product Hot-->
 
-<!--Product Brand-->
+<!-- Featured Brands -->
 <div class="container">
-    <p class="text-center fw-bold fs-2 text-danger">HÃNG NỔI BẬT</p>
-    <div class="showbrand">
-        <a href="showproduct.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
+    <p class="text-center fw-bold fs-2 text-dark mt-5">CÁC HÃNG NỔI BẬT</p>
+    <div class="featured-brands">
+        <a href="product.php" class="brand-card">
+            <img src="image/logo/brand_logo/MLB.png" alt="MLB Brand Logo">
         </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
+        <a href="product.php" class="brand-card">
+            <img src="image/logo/brand_logo/ADIDAS.png" alt="Adidas">
         </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
+        <a href="product.php" class="brand-card">
+            <img src="image/logo/brand_logo/NIKE.png" alt="Nike">
         </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
+        <a href="product.php" class="brand-card">
+            <img src="image/logo/brand_logo/CONVERSE.png" alt="Converse">
         </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
+        <a href="product.php" class="brand-card">
+            <img src="image/logo/brand_logo/NB.png" alt="New Balance">
         </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
-        </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
-        </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
-        </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
-        </a>
-        <a href="product.php">
-            <img src="image/THETHAO/NB/14845b86bbe8bd34dd8cd12afac5dd21-150x84.jpg" class="img-thumbnail" alt="Brand Logo">
+        <a href="product.php" class="brand-card">
+            <img src="image/logo/brand_logo/VANS.png" alt="Vans">
         </a>
     </div>
 </div>
-<!--Product Brand-->
 
 
-    <!--Feed Back-->
-    <div class="container">
-        <p class="text-center fw-bold fs-2 text-danger">PHẢN HỒI CỦA KHÁCH HÀNG</p>
-        <div class="feedback">
-
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/481248842_2301623373544556_6996918353748216704_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_vUUeN1_CnsQ7kNvwFJ81UW&_nc_oc=AdnpAbypatLVc88QSuDCg3HUVnptXhRvzEDjNP4Lrf44eHq_H2IjYiMFjCZogT7iDIg&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=fHXHzgtcFOJBWwaa8IQiGw&oh=00_AfF3Egw1sBF9r7LuYOKuFOySSpnVVPLxzTTUq6htWS-TzA&oe=6807B1D8" class="img-fluid rounded-start" alt="avtfeedback">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">FeedBack 1</h5>
-                            <p class="card-text">Nội Dung FeedBack</p>
-                            <p class="card-text"><small class="text-muted">Ngày Đăng</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/481248842_2301623373544556_6996918353748216704_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_vUUeN1_CnsQ7kNvwFJ81UW&_nc_oc=AdnpAbypatLVc88QSuDCg3HUVnptXhRvzEDjNP4Lrf44eHq_H2IjYiMFjCZogT7iDIg&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=fHXHzgtcFOJBWwaa8IQiGw&oh=00_AfF3Egw1sBF9r7LuYOKuFOySSpnVVPLxzTTUq6htWS-TzA&oe=6807B1D8" class="img-fluid rounded-start" alt="avtfeedback">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">FeedBack 2</h5>
-                            <p class="card-text">Nội Dung FeedBack</p>
-                            <p class="card-text"><small class="text-muted">Ngày Đăng</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/481248842_2301623373544556_6996918353748216704_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_vUUeN1_CnsQ7kNvwFJ81UW&_nc_oc=AdnpAbypatLVc88QSuDCg3HUVnptXhRvzEDjNP4Lrf44eHq_H2IjYiMFjCZogT7iDIg&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=fHXHzgtcFOJBWwaa8IQiGw&oh=00_AfF3Egw1sBF9r7LuYOKuFOySSpnVVPLxzTTUq6htWS-TzA&oe=6807B1D8" class="img-fluid rounded-start" alt="avtfeedback">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">FeedBack 2</h5>
-                            <p class="card-text">Nội Dung FeedBack</p>
-                            <p class="card-text"><small class="text-muted">Ngày Đăng</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/481248842_2301623373544556_6996918353748216704_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_vUUeN1_CnsQ7kNvwFJ81UW&_nc_oc=AdnpAbypatLVc88QSuDCg3HUVnptXhRvzEDjNP4Lrf44eHq_H2IjYiMFjCZogT7iDIg&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=fHXHzgtcFOJBWwaa8IQiGw&oh=00_AfF3Egw1sBF9r7LuYOKuFOySSpnVVPLxzTTUq6htWS-TzA&oe=6807B1D8" class="img-fluid rounded-start" alt="avtfeedback">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">FeedBack 2</h5>
-                            <p class="card-text">Nội Dung FeedBack</p>
-                            <p class="card-text"><small class="text-muted">Ngày Đăng</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/481248842_2301623373544556_6996918353748216704_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_vUUeN1_CnsQ7kNvwFJ81UW&_nc_oc=AdnpAbypatLVc88QSuDCg3HUVnptXhRvzEDjNP4Lrf44eHq_H2IjYiMFjCZogT7iDIg&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=fHXHzgtcFOJBWwaa8IQiGw&oh=00_AfF3Egw1sBF9r7LuYOKuFOySSpnVVPLxzTTUq6htWS-TzA&oe=6807B1D8" class="img-fluid rounded-start" alt="avtfeedback">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">FeedBack 2</h5>
-                            <p class="card-text">Nội Dung FeedBack</p>
-                            <p class="card-text"><small class="text-muted">Ngày Đăng</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/481248842_2301623373544556_6996918353748216704_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_vUUeN1_CnsQ7kNvwFJ81UW&_nc_oc=AdnpAbypatLVc88QSuDCg3HUVnptXhRvzEDjNP4Lrf44eHq_H2IjYiMFjCZogT7iDIg&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=fHXHzgtcFOJBWwaa8IQiGw&oh=00_AfF3Egw1sBF9r7LuYOKuFOySSpnVVPLxzTTUq6htWS-TzA&oe=6807B1D8" class="img-fluid rounded-start" alt="avtfeedback">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">FeedBack 2</h5>
-                            <p class="card-text">Nội Dung FeedBack</p>
-                            <p class="card-text"><small class="text-muted">Ngày Đăng</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/481248842_2301623373544556_6996918353748216704_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_vUUeN1_CnsQ7kNvwFJ81UW&_nc_oc=AdnpAbypatLVc88QSuDCg3HUVnptXhRvzEDjNP4Lrf44eHq_H2IjYiMFjCZogT7iDIg&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=fHXHzgtcFOJBWwaa8IQiGw&oh=00_AfF3Egw1sBF9r7LuYOKuFOySSpnVVPLxzTTUq6htWS-TzA&oe=6807B1D8" class="img-fluid rounded-start" alt="avtfeedback">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">FeedBack 2</h5>
-                            <p class="card-text">Nội Dung FeedBack</p>
-                            <p class="card-text"><small class="text-muted">Ngày Đăng</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://scontent.fhan2-5.fna.fbcdn.net/v/t39.30808-6/481248842_2301623373544556_6996918353748216704_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=_vUUeN1_CnsQ7kNvwFJ81UW&_nc_oc=AdnpAbypatLVc88QSuDCg3HUVnptXhRvzEDjNP4Lrf44eHq_H2IjYiMFjCZogT7iDIg&_nc_zt=23&_nc_ht=scontent.fhan2-5.fna&_nc_gid=fHXHzgtcFOJBWwaa8IQiGw&oh=00_AfF3Egw1sBF9r7LuYOKuFOySSpnVVPLxzTTUq6htWS-TzA&oe=6807B1D8" class="img-fluid rounded-start" alt="avtfeedback">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">FeedBack 2</h5>
-                            <p class="card-text">Nội Dung FeedBack</p>
-                            <p class="card-text"><small class="text-muted">Ngày Đăng</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Feed Back-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<?php
+include_once("footer.php");
+?>

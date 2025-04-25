@@ -9,7 +9,7 @@ include_once("header.php");
       <div class="list-group mt-3">
         <a href="profile.php" class="list-group-item list-group-item-action">Hồ sơ</a>
         <a href="order_history.php" class="list-group-item list-group-item-action">Lịch sử đơn hàng</a>
-        <a href="#" class="list-group-item list-group-item-action">Đổi mật khẩu</a>
+        <a href="repass.php" class="list-group-item list-group-item-action">Đổi mật khẩu</a>
         <a href="#" class="list-group-item list-group-item-action">Đăng xuất</a>
       </div>
     </aside>
@@ -60,3 +60,6 @@ include_once("header.php");
     </main>
   </div>
 </div>
+<?php
+include_once("footer.php");
+?>
